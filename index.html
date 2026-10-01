@@ -1,0 +1,1826 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pousada Encanto da Serra em Tiradentes, a 400 metros do centro histórico. Explore acomodações e consulte a disponibilidade.">
+  <meta name="theme-color" content="#173b4b">
+  <link rel="preload" as="image" href="assets/pexels-video-36026712-poster.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Bona+Nova:wght@400;700&display=swap" rel="stylesheet">
+  <title>Pousada Encanto da Serra | Tiradentes</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --azul-serra: #173b4b;
+      --azul-profundo: #0c2835;
+      --nevoa: #dce8e7;
+      --calcario: #f5f2ea;
+      --mata: #28584e;
+      --latao: #c49a52;
+      --grafite: #172126;
+      --branco-nevoa: #fafcfb;
+      --linha: rgba(250, 252, 251, .3);
+      --gutter: clamp(1rem, 4vw, 4.75rem);
+      --header-height: 5.4rem;
+      --content-max: 94rem;
+      --ease: cubic-bezier(.2, .72, .22, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: var(--azul-profundo);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-width: 320px;
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--azul-profundo);
+      color: var(--branco-nevoa);
+      font-family: "Atkinson Hyperlegible Next", "Segoe UI", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a,
+    button {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--latao);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: .75rem;
+      left: .75rem;
+      padding: .8rem 1rem;
+      background: var(--calcario);
+      color: var(--grafite);
+      font-weight: 700;
+      text-decoration: none;
+      transform: translateY(-180%);
+      transition: transform 180ms var(--ease);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .site-header {
+      position: absolute;
+      z-index: 20;
+      inset: 0 0 auto;
+      min-height: var(--header-height);
+      border-bottom: 1px solid var(--linha);
+      background: rgba(12, 40, 53, .56);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      width: min(100%, var(--content-max));
+      min-height: var(--header-height);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+      display: grid;
+      grid-template-columns: minmax(14rem, 1fr) auto auto;
+      align-items: center;
+      gap: clamp(1rem, 2.4vw, 2.5rem);
+    }
+
+    .brand {
+      width: fit-content;
+      display: inline-grid;
+      gap: .12rem;
+      text-decoration: none;
+    }
+
+    .brand-name {
+      font-family: "Bona Nova", Georgia, serif;
+      font-size: clamp(1.12rem, 1.55vw, 1.45rem);
+      font-weight: 700;
+      letter-spacing: -.018em;
+      line-height: 1;
+    }
+
+    .brand-place {
+      color: rgba(250, 252, 251, .7);
+      font-size: .72rem;
+      line-height: 1.2;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(.8rem, 1.7vw, 1.75rem);
+    }
+
+    .site-nav a {
+      min-height: 2.75rem;
+      display: inline-flex;
+      align-items: center;
+      color: rgba(250, 252, 251, .82);
+      font-size: .88rem;
+      font-weight: 600;
+      text-decoration-color: transparent;
+      text-decoration-thickness: 1px;
+      text-underline-offset: .38rem;
+      transition: color 160ms ease-out, text-decoration-color 160ms ease-out;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus-visible {
+      color: var(--branco-nevoa);
+      text-decoration-color: var(--latao);
+    }
+
+    .header-booking,
+    .button {
+      min-height: 3rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .62rem;
+      border: 1px solid transparent;
+      padding: .8rem 1.05rem;
+      font-weight: 700;
+      line-height: 1;
+      text-decoration: none;
+      transition: color 180ms var(--ease), background-color 180ms var(--ease), border-color 180ms var(--ease), transform 180ms var(--ease);
+    }
+
+    .header-booking {
+      background: var(--calcario);
+      color: var(--azul-profundo);
+      font-size: .88rem;
+    }
+
+    .header-booking:hover,
+    .button-primary:hover {
+      background: var(--nevoa);
+      transform: translateY(-1px);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: relative;
+    }
+
+    .mobile-menu summary {
+      width: 3rem;
+      min-height: 3rem;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--linha);
+      background: rgba(12, 40, 53, .72);
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .mobile-menu summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .menu-icon,
+    .menu-icon::before,
+    .menu-icon::after {
+      width: 1.15rem;
+      height: 1px;
+      display: block;
+      background: currentColor;
+    }
+
+    .menu-icon {
+      position: relative;
+    }
+
+    .menu-icon::before,
+    .menu-icon::after {
+      position: absolute;
+      left: 0;
+      content: "";
+    }
+
+    .menu-icon::before { top: -.35rem; }
+    .menu-icon::after { top: .35rem; }
+
+    .mobile-menu-links {
+      position: absolute;
+      top: calc(100% + .75rem);
+      right: 0;
+      width: min(19rem, calc(100vw - 2rem));
+      padding: .7rem;
+      border: 1px solid var(--linha);
+      background: rgba(12, 40, 53, .98);
+      box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, .24);
+    }
+
+    .mobile-menu-links a {
+      min-height: 2.85rem;
+      display: flex;
+      align-items: center;
+      padding-inline: .65rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .mobile-menu-links .header-booking {
+      margin-top: .45rem;
+      justify-content: center;
+      color: var(--azul-profundo);
+    }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      min-height: max(46rem, 100svh);
+      overflow: hidden;
+      background: var(--azul-profundo) url("assets/pexels-video-36026712-poster.jpg") center / cover no-repeat;
+    }
+
+    .hero-media-shell,
+    .hero-media,
+    .hero-shade,
+    .hero-horizon {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-media-shell {
+      z-index: -4;
+      background: var(--azul-profundo) url("assets/pexels-video-36026712-poster.jpg") center / cover no-repeat;
+    }
+
+    .hero-media {
+      display: block;
+      object-fit: cover;
+      object-position: 56% 50%;
+      transition: opacity 220ms ease-out;
+    }
+
+    .hero-media.is-paused {
+      opacity: 0;
+    }
+
+    .hero-shade {
+      z-index: -3;
+      background:
+        linear-gradient(90deg, rgba(12, 40, 53, .96) 0%, rgba(12, 40, 53, .9) 34%, rgba(12, 40, 53, .34) 67%, rgba(12, 40, 53, .2) 100%),
+        linear-gradient(0deg, rgba(12, 40, 53, .74) 0%, transparent 46%);
+      pointer-events: none;
+    }
+
+    .hero-horizon {
+      z-index: -2;
+      top: 60%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0, var(--latao) 8%, rgba(250, 252, 251, .74) 48%, rgba(250, 252, 251, .18) 100%);
+      pointer-events: none;
+    }
+
+    .hero-horizon::after {
+      position: absolute;
+      top: -.38rem;
+      left: clamp(57%, 68vw, 72%);
+      width: .78rem;
+      aspect-ratio: 1;
+      border: 2px solid var(--calcario);
+      border-radius: 50%;
+      background: var(--latao);
+      content: "";
+      box-shadow: 0 0 0 .45rem rgba(196, 154, 82, .2);
+    }
+
+    .hero-shell {
+      width: min(100%, var(--content-max));
+      min-height: max(46rem, 100svh);
+      margin-inline: auto;
+      padding: calc(var(--header-height) + clamp(2.75rem, 8vh, 6.25rem)) var(--gutter) clamp(2rem, 4vh, 3.25rem);
+      display: grid;
+      grid-template-columns: minmax(0, 7fr) minmax(16rem, 3fr);
+      grid-template-rows: 1fr auto;
+      column-gap: clamp(2rem, 6vw, 7rem);
+      row-gap: clamp(1.25rem, 3vh, 2.25rem);
+      align-items: center;
+    }
+
+    .hero-copy {
+      width: min(100%, 53rem);
+      align-self: center;
+      border-left: 1px solid rgba(250, 252, 251, .55);
+      padding: clamp(1.5rem, 4vw, 3.5rem) 0 clamp(1.5rem, 4vw, 3.5rem) clamp(1.35rem, 3vw, 3rem);
+      background: linear-gradient(90deg, rgba(23, 59, 75, .5), transparent 82%);
+    }
+
+    .hero-location {
+      margin: 0 0 clamp(1.15rem, 2.8vh, 1.9rem);
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      color: var(--nevoa);
+      font-size: clamp(.95rem, 1.3vw, 1.12rem);
+      font-weight: 600;
+    }
+
+    .hero-location::before {
+      width: 2.4rem;
+      height: 2px;
+      flex: 0 0 auto;
+      background: var(--latao);
+      content: "";
+    }
+
+    h1 {
+      max-width: 10ch;
+      margin: 0;
+      font-family: "Bona Nova", Georgia, serif;
+      font-size: clamp(3.5rem, 7.2vw, 7rem);
+      font-weight: 400;
+      letter-spacing: -.045em;
+      line-height: .86;
+      text-wrap: balance;
+    }
+
+    .hero-lead {
+      max-width: 40rem;
+      margin: clamp(1.5rem, 3vh, 2.2rem) 0 0;
+      color: rgba(250, 252, 251, .88);
+      font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+      line-height: 1.52;
+      text-wrap: pretty;
+    }
+
+    .hero-actions {
+      margin-top: clamp(1.6rem, 3.5vh, 2.5rem);
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+
+    .button-primary {
+      background: var(--calcario);
+      color: var(--azul-profundo);
+    }
+
+    .button-secondary {
+      border-color: rgba(250, 252, 251, .52);
+      background: rgba(12, 40, 53, .45);
+      color: var(--branco-nevoa);
+      backdrop-filter: blur(8px);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--branco-nevoa);
+      background: rgba(250, 252, 251, .1);
+      transform: translateY(-1px);
+    }
+
+    .button svg,
+    .header-booking svg,
+    .motion-toggle svg {
+      width: 1.08rem;
+      height: 1.08rem;
+      flex: 0 0 auto;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.8;
+    }
+
+    .hero-context {
+      width: min(100%, 20rem);
+      justify-self: end;
+      align-self: end;
+      margin-bottom: clamp(1.5rem, 7vh, 5rem);
+      padding: 1.25rem 0 0;
+      border-top: 3px solid var(--latao);
+    }
+
+    .context-distance {
+      margin: 0;
+      font-family: "Bona Nova", Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 4.6rem);
+      letter-spacing: -.045em;
+      line-height: .88;
+    }
+
+    .context-copy {
+      max-width: 25ch;
+      margin: .9rem 0 0;
+      color: rgba(250, 252, 251, .8);
+      font-size: .98rem;
+      line-height: 1.5;
+    }
+
+    .hero-footer {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      gap: 1.25rem;
+      border-top: 1px solid var(--linha);
+      padding-top: 1rem;
+    }
+
+    .journey {
+      margin: 0;
+      color: rgba(250, 252, 251, .68);
+      font-size: .76rem;
+      line-height: 1.45;
+    }
+
+    .hero-controls {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+
+    .motion-toggle {
+      min-height: 2.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      border: 1px solid rgba(250, 252, 251, .4);
+      padding: .65rem .8rem;
+      background: rgba(12, 40, 53, .72);
+      color: var(--branco-nevoa);
+      font-size: .8rem;
+      font-weight: 700;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+    }
+
+    .motion-toggle:hover {
+      border-color: var(--branco-nevoa);
+    }
+
+    .demo-disclosure {
+      margin: 0;
+      color: rgba(250, 252, 251, .68);
+      font-size: .72rem;
+      line-height: 1.35;
+      white-space: nowrap;
+    }
+
+    .content-section {
+      scroll-margin-top: 1rem;
+    }
+
+    .section-inner {
+      width: min(100%, var(--content-max));
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(16rem, .62fr);
+      align-items: end;
+      gap: clamp(2rem, 7vw, 8rem);
+    }
+
+    .section-heading h2,
+    .experience-copy h2,
+    .plan-copy h2 {
+      max-width: 12ch;
+      margin: 0;
+      font-family: "Bona Nova", Georgia, serif;
+      font-size: clamp(2.7rem, 5.6vw, 5.6rem);
+      font-weight: 400;
+      letter-spacing: -.045em;
+      line-height: .93;
+      text-wrap: balance;
+    }
+
+    .section-heading p,
+    .experience-intro,
+    .plan-intro {
+      max-width: 36rem;
+      margin: 0;
+      font-size: clamp(1rem, 1.35vw, 1.16rem);
+      line-height: 1.62;
+    }
+
+    .accommodations {
+      position: relative;
+      overflow: hidden;
+      background: var(--calcario);
+      color: var(--grafite);
+      padding: clamp(5rem, 10vw, 9rem) 0;
+    }
+
+    .accommodations::before {
+      position: absolute;
+      inset: 0 auto 0 61%;
+      width: 1px;
+      background: rgba(23, 59, 75, .13);
+      content: "";
+      pointer-events: none;
+    }
+
+    .accommodations .section-heading p {
+      color: rgba(23, 33, 38, .7);
+    }
+
+    .guest-rail {
+      --rail-position: 0%;
+      position: relative;
+      margin-top: clamp(3rem, 7vw, 6rem);
+      padding-top: 2rem;
+    }
+
+    .guest-rail::before {
+      position: absolute;
+      top: .55rem;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--azul-serra), var(--mata));
+      content: "";
+    }
+
+    .rail-marker {
+      position: absolute;
+      z-index: 2;
+      top: .14rem;
+      left: var(--rail-position);
+      width: .88rem;
+      aspect-ratio: 1;
+      border: 2px solid var(--calcario);
+      border-radius: 50%;
+      background: var(--latao);
+      box-shadow: 0 0 0 .38rem rgba(196, 154, 82, .2);
+      transform: translateX(-2px);
+      transition: left 200ms var(--ease);
+    }
+
+    .guest-filters {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(7.5rem, 1fr));
+      gap: .65rem;
+    }
+
+    .guest-filter {
+      min-height: 3.25rem;
+      border: 1px solid rgba(23, 59, 75, .24);
+      padding: .75rem 1rem;
+      background: transparent;
+      color: var(--azul-serra);
+      font-weight: 700;
+      cursor: pointer;
+      transition: color 180ms var(--ease), background-color 180ms var(--ease), border-color 180ms var(--ease);
+    }
+
+    .guest-filter:hover {
+      border-color: var(--azul-serra);
+    }
+
+    .guest-filter[aria-pressed="true"] {
+      border-color: var(--azul-serra);
+      background: var(--azul-serra);
+      color: var(--branco-nevoa);
+    }
+
+    .room-explorer {
+      margin-top: clamp(2.5rem, 5vw, 4.5rem);
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(19rem, 2fr);
+      gap: clamp(2rem, 6vw, 6rem);
+      align-items: start;
+    }
+
+    .room-list {
+      display: grid;
+      border-top: 1px solid rgba(23, 59, 75, .22);
+    }
+
+    .room-option {
+      width: 100%;
+      min-height: 4.9rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 1rem;
+      border: 0;
+      border-bottom: 1px solid rgba(23, 59, 75, .22);
+      padding: 1rem .25rem;
+      background: transparent;
+      color: var(--grafite);
+      text-align: left;
+      cursor: pointer;
+      transition: color 180ms var(--ease), padding 180ms var(--ease), background-color 180ms var(--ease);
+    }
+
+    .room-option:hover,
+    .room-option[aria-pressed="true"] {
+      padding-inline: 1rem;
+      background: var(--nevoa);
+      color: var(--azul-serra);
+    }
+
+    .room-option[hidden] {
+      display: none;
+    }
+
+    .room-name {
+      font-family: "Bona Nova", Georgia, serif;
+      font-size: clamp(1.15rem, 1.65vw, 1.48rem);
+      line-height: 1.15;
+    }
+
+    .room-capacity {
+      color: rgba(23, 33, 38, .6);
+      font-size: .86rem;
+      white-space: nowrap;
+    }
+
+    .room-detail-shell {
+      position: sticky;
+      top: 1.5rem;
+      border-top: 4px solid var(--latao);
+      background: var(--azul-serra);
+      color: var(--branco-nevoa);
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .detail-location {
+      margin: 0 0 1.25rem;
+      color: var(--nevoa);
+      font-size: .88rem;
+      font-weight: 600;
+    }
+
+    .room-detail-shell h3 {
+      max-width: 18ch;
+      margin: 0;
+      font-family: "Bona Nova", Georgia, serif;
+      font-size: clamp(2rem, 3.3vw, 3.25rem);
+      font-weight: 400;
+      letter-spacing: -.035em;
+      line-height: 1;
+    }
+
+    .room-detail-copy {
+      margin: 1.35rem 0 0;
+      color: rgba(250, 252, 251, .78);
+      line-height: 1.58;
+    }
+
+    .detail-facts {
+      margin: 1.5rem 0 0;
+      display: grid;
+      gap: .7rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .detail-facts li {
+      display: grid;
+      grid-template-columns: .75rem 1fr;
+      gap: .7rem;
+      color: rgba(250, 252, 251, .88);
+      line-height: 1.4;
+    }
+
+    .detail-facts li::before {
+      width: .48rem;
+      aspect-ratio: 1;
+      margin-top: .4rem;
+      border-radius: 50%;
+      background: var(--latao);
+      content: "";
+    }
+
+    .selection-strip {
+      margin-top: 2rem;
+      border-top: 1px solid rgba(250, 252, 251, .24);
+      padding-top: 1.35rem;
+    }
+
+    .selection-strip strong {
+      display: block;
+      margin-bottom: .45rem;
+      font-size: .82rem;
+    }
+
+    #selection-result {
+      min-height: 2.9rem;
+      margin: 0;
+      color: var(--nevoa);
+      line-height: 1.45;
+    }
+
+    .review-stay {
+      width: 100%;
+      min-height: 3.25rem;
+      margin-top: 1.15rem;
+      border: 1px solid var(--calcario);
+      padding: .8rem 1rem;
+      background: var(--calcario);
+      color: var(--azul-profundo);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .review-stay:disabled {
+      border-color: rgba(250, 252, 251, .22);
+      background: transparent;
+      color: rgba(250, 252, 251, .44);
+      cursor: not-allowed;
+    }
+
+    .experience {
+      background: var(--nevoa);
+      color: var(--grafite);
+      padding: clamp(4.5rem, 9vw, 8.5rem) 0;
+    }
+
+    .experience-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(20rem, .7fr);
+      gap: clamp(2.5rem, 7vw, 7rem);
+      align-items: center;
+    }
+
+    .place-photo-frame {
+      position: relative;
+      min-height: clamp(28rem, 52vw, 47rem);
+      overflow: hidden;
+      background: var(--azul-serra);
+    }
+
+    .place-photo-frame::after {
+      position: absolute;
+      inset: auto 0 0;
+      height: 42%;
+      background: linear-gradient(0deg, rgba(12, 40, 53, .72), transparent);
+      content: "";
+      pointer-events: none;
+    }
+
+    .place-photo {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
+      object-position: 54% 48%;
+    }
+
+    .place-photo-caption {
+      position: absolute;
+      z-index: 2;
+      right: 1.25rem;
+      bottom: 1.1rem;
+      left: 1.25rem;
+      margin: 0;
+      color: var(--branco-nevoa);
+      font-size: .82rem;
+      line-height: 1.4;
+    }
+
+    .experience-copy {
+      padding-block: 1rem;
+    }
+
+    .experience-intro {
+      margin-top: 1.5rem;
+      color: rgba(23, 33, 38, .72);
+    }
+
+    .fact-list {
+      margin: clamp(2rem, 5vw, 4rem) 0 0;
+      border-top: 1px solid rgba(23, 59, 75, .28);
+    }
+
+    .fact-row {
+      min-height: 4.8rem;
+      display: grid;
+      grid-template-columns: minmax(8rem, .72fr) minmax(0, 1fr);
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 1px solid rgba(23, 59, 75, .28);
+      padding: 1rem 0;
+    }
+
+    .fact-row dt {
+      color: var(--azul-serra);
+      font-weight: 700;
+    }
+
+    .fact-row dd {
+      margin: 0;
+      color: rgba(23, 33, 38, .72);
+      line-height: 1.45;
+    }
+
+    .rating-line {
+      margin: 1.7rem 0 0;
+      display: flex;
+      align-items: baseline;
+      gap: .75rem;
+      color: var(--mata);
+    }
+
+    .rating-number {
+      font-family: "Bona Nova", Georgia, serif;
+      font-size: 3.2rem;
+      line-height: 1;
+    }
+
+    .rating-copy {
+      max-width: 15rem;
+      color: rgba(23, 33, 38, .66);
+      font-size: .9rem;
+      line-height: 1.35;
+    }
+
+    .plan {
+      background: var(--azul-profundo);
+      color: var(--branco-nevoa);
+      padding: clamp(5rem, 10vw, 9rem) 0;
+    }
+
+    .plan-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(19rem, .82fr);
+      gap: clamp(3rem, 8vw, 9rem);
+      align-items: start;
+    }
+
+    .plan-copy h2 {
+      color: var(--branco-nevoa);
+    }
+
+    .plan-intro {
+      margin-top: 1.5rem;
+      color: rgba(250, 252, 251, .68);
+    }
+
+    .stay-summary {
+      position: relative;
+      margin-top: clamp(2.5rem, 5vw, 4.5rem);
+      border-top: 1px solid rgba(250, 252, 251, .32);
+      padding: 2rem 0 0 2rem;
+    }
+
+    .stay-summary::before {
+      position: absolute;
+      top: -.45rem;
+      left: 0;
+      width: .9rem;
+      aspect-ratio: 1;
+      border: 2px solid var(--azul-profundo);
+      border-radius: 50%;
+      background: var(--latao);
+      box-shadow: 0 0 0 .38rem rgba(196, 154, 82, .18);
+      content: "";
+    }
+
+    .stay-summary h3 {
+      margin: 0;
+      font-family: "Bona Nova", Georgia, serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 400;
+    }
+
+    .summary-state {
+      min-height: 4.5rem;
+      margin: 1rem 0 0;
+      color: var(--nevoa);
+      font-size: 1.08rem;
+      line-height: 1.55;
+    }
+
+    .summary-actions {
+      margin-top: 1.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+    }
+
+    .text-action {
+      min-height: 2.85rem;
+      border: 1px solid rgba(250, 252, 251, .35);
+      padding: .7rem .9rem;
+      background: transparent;
+      color: var(--branco-nevoa);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .text-action:hover {
+      border-color: var(--latao);
+      color: var(--nevoa);
+    }
+
+    .contact-panel {
+      border-left: 1px solid rgba(250, 252, 251, .26);
+      padding-left: clamp(1.5rem, 4vw, 3.5rem);
+    }
+
+    .contact-panel h3 {
+      max-width: 14ch;
+      margin: 0;
+      font-family: "Bona Nova", Georgia, serif;
+      font-size: clamp(2rem, 3.4vw, 3.35rem);
+      font-weight: 400;
+      letter-spacing: -.035em;
+      line-height: 1;
+    }
+
+    .contact-panel > p {
+      margin: 1.25rem 0 0;
+      color: rgba(250, 252, 251, .68);
+      line-height: 1.55;
+    }
+
+    .contact-actions {
+      margin-top: 2rem;
+      display: grid;
+      gap: .75rem;
+    }
+
+    .contact-actions .button {
+      width: 100%;
+      min-height: 3.4rem;
+    }
+
+    .contact-link {
+      min-height: 3.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      border-bottom: 1px solid rgba(250, 252, 251, .28);
+      color: var(--branco-nevoa);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .contact-link:hover {
+      border-bottom-color: var(--latao);
+      color: var(--nevoa);
+    }
+
+    .address {
+      margin-top: 2.5rem;
+      border-top: 3px solid var(--latao);
+      padding-top: 1rem;
+      color: rgba(250, 252, 251, .72);
+      font-style: normal;
+      line-height: 1.55;
+    }
+
+    .site-footer {
+      border-top: 1px solid rgba(250, 252, 251, .2);
+      background: var(--azul-profundo);
+      color: var(--branco-nevoa);
+    }
+
+    .footer-inner {
+      width: min(100%, var(--content-max));
+      min-height: 8.5rem;
+      margin-inline: auto;
+      padding: 2rem var(--gutter);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer-credit {
+      margin: 0;
+      color: rgba(250, 252, 251, .72);
+      line-height: 1.5;
+    }
+
+    .footer-credit strong {
+      color: var(--branco-nevoa);
+      font-family: "Bona Nova", Georgia, serif;
+      font-size: 1.18rem;
+      font-weight: 400;
+    }
+
+    .footer-top-link {
+      min-height: 2.75rem;
+      display: inline-flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(250, 252, 251, .36);
+      color: var(--branco-nevoa);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .footer-top-link:hover {
+      border-bottom-color: var(--latao);
+      color: var(--nevoa);
+    }
+
+    @media (max-width: 64rem) {
+      .header-inner {
+        grid-template-columns: minmax(12rem, 1fr) auto;
+      }
+
+      .site-nav,
+      .header-inner > .header-booking {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .hero-shell {
+        grid-template-columns: minmax(0, 1fr) minmax(13rem, .42fr);
+        gap: 2rem;
+      }
+
+      h1 {
+        font-size: clamp(3.8rem, 9vw, 6.4rem);
+      }
+    }
+
+    @media (max-width: 44rem) {
+      :root {
+        --header-height: 4.8rem;
+      }
+
+      .site-header {
+        background: rgba(12, 40, 53, .72);
+      }
+
+      .header-inner {
+        padding-inline: 1rem;
+      }
+
+      .brand-name {
+        font-size: 1.02rem;
+      }
+
+      .brand-place {
+        font-size: .68rem;
+      }
+
+      .hero {
+        min-height: 100svh;
+        background-position: 58% center;
+      }
+
+      .hero-media {
+        object-position: 60% center;
+      }
+
+      .hero-shade {
+        background:
+          linear-gradient(0deg, rgba(12, 40, 53, .99) 0%, rgba(12, 40, 53, .94) 46%, rgba(12, 40, 53, .2) 80%, rgba(12, 40, 53, .16) 100%),
+          linear-gradient(90deg, rgba(12, 40, 53, .5), transparent 74%);
+      }
+
+      .hero-horizon {
+        top: 39%;
+      }
+
+      .hero-horizon::after {
+        left: 72%;
+      }
+
+      .hero-shell {
+        width: 100%;
+        max-width: 100vw;
+        min-height: 100svh;
+        padding: calc(var(--header-height) + 29vh) 1rem 1.15rem;
+        display: block;
+      }
+
+      .hero-copy {
+        width: auto;
+        max-width: calc(100vw - 2rem);
+        padding: 1.35rem 1rem 1.45rem;
+        border: 0;
+        border-top: 1px solid rgba(250, 252, 251, .5);
+        background: rgba(23, 59, 75, .83);
+        backdrop-filter: blur(8px);
+      }
+
+      .hero-location {
+        margin-bottom: .95rem;
+        font-size: .9rem;
+      }
+
+      h1 {
+        max-width: 11ch;
+        font-size: clamp(3rem, 14.2vw, 4.7rem);
+        line-height: .88;
+      }
+
+      .hero-lead {
+        margin-top: 1rem;
+        font-size: 1rem;
+        line-height: 1.45;
+      }
+
+      .hero-actions {
+        margin-top: 1.2rem;
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+        min-height: 3.15rem;
+      }
+
+      .hero-context {
+        width: 100%;
+        margin: 1rem 0 0;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: start;
+        gap: 1rem;
+        border-top-width: 2px;
+        padding-top: .85rem;
+      }
+
+      .context-distance {
+        font-size: 2.2rem;
+      }
+
+      .context-copy {
+        margin: 0;
+        font-size: .86rem;
+      }
+
+      .hero-footer {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: .75rem;
+        padding-top: .85rem;
+      }
+
+      .journey {
+        display: none;
+      }
+
+      .hero-controls {
+        justify-content: space-between;
+        gap: .75rem;
+      }
+
+      .motion-toggle {
+        flex: 0 0 auto;
+      }
+
+      .demo-disclosure {
+        white-space: normal;
+        text-align: right;
+      }
+    }
+
+    @media (max-width: 23rem) {
+      .hero-shell {
+        padding-top: calc(var(--header-height) + 25vh);
+      }
+
+      h1 {
+        font-size: 2.8rem;
+      }
+
+      .hero-context {
+        display: block;
+      }
+
+      .context-copy {
+        margin-top: .55rem;
+      }
+
+      .hero-controls {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .demo-disclosure {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 64rem) {
+      .room-explorer,
+      .experience-layout,
+      .plan-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .room-detail-shell {
+        position: static;
+      }
+
+      .experience-layout {
+        gap: 3rem;
+      }
+
+      .place-photo-frame {
+        min-height: 34rem;
+      }
+
+      .experience-copy {
+        display: grid;
+        grid-template-columns: minmax(0, .8fr) minmax(18rem, 1fr);
+        align-items: start;
+        gap: 2rem 4rem;
+      }
+
+      .experience-intro {
+        grid-column: 1;
+      }
+
+      .fact-list {
+        grid-column: 2;
+        grid-row: 1 / span 3;
+        margin-top: 0;
+      }
+
+      .rating-line {
+        grid-column: 1;
+      }
+
+      .contact-panel {
+        border-top: 1px solid rgba(250, 252, 251, .26);
+        border-left: 0;
+        padding-top: 2.5rem;
+        padding-left: 0;
+      }
+    }
+
+    @media (max-width: 44rem) {
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .section-heading h2,
+      .experience-copy h2,
+      .plan-copy h2 {
+        font-size: clamp(2.7rem, 13vw, 4.2rem);
+      }
+
+      .accommodations::before {
+        display: none;
+      }
+
+      .guest-rail {
+        margin-right: calc(var(--gutter) * -1);
+        overflow-x: auto;
+        padding-right: var(--gutter);
+        scrollbar-width: thin;
+      }
+
+      .guest-rail::before,
+      .rail-marker {
+        display: none;
+      }
+
+      .guest-filters {
+        width: max-content;
+        display: flex;
+        gap: .55rem;
+      }
+
+      .guest-filter {
+        min-width: 8rem;
+      }
+
+      .room-explorer {
+        gap: 2.2rem;
+      }
+
+      .room-option {
+        min-height: 5.25rem;
+        align-items: start;
+      }
+
+      .room-capacity {
+        font-size: .78rem;
+      }
+
+      .room-detail-shell {
+        margin-inline: calc(var(--gutter) * -1);
+      }
+
+      .place-photo-frame {
+        min-height: 29rem;
+      }
+
+      .experience-copy {
+        display: block;
+      }
+
+      .fact-list {
+        margin-top: 2.5rem;
+      }
+
+      .fact-row {
+        grid-template-columns: 1fr;
+        gap: .35rem;
+      }
+
+      .rating-line {
+        align-items: center;
+      }
+
+      .stay-summary {
+        padding-left: 1rem;
+      }
+
+      .summary-actions {
+        display: grid;
+      }
+
+      .footer-inner {
+        min-height: 10rem;
+        grid-template-columns: 1fr;
+        align-content: center;
+      }
+
+      .footer-top-link {
+        width: fit-content;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+
+      .hero-media {
+        opacity: 0;
+      }
+
+      .rail-marker {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" id="skip-to-accommodations" href="#acomodacoes">Ir para acomodações</a>
+
+  <header class="site-header" aria-label="Cabeçalho principal">
+    <div class="header-inner">
+      <a class="brand" href="#hero" aria-label="Pousada Encanto da Serra — início">
+        <span class="brand-name">Pousada Encanto da Serra</span>
+        <span class="brand-place">Tiradentes, Minas Gerais</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Navegação principal">
+        <a href="#acomodacoes">Acomodações</a>
+        <a href="#experiencia">A experiência</a>
+        <a href="#planeje">Planeje sua estadia</a>
+      </nav>
+
+      <a class="header-booking" href="https://hotels.cloudbeds.com/reservas/Njf28O" target="_blank" rel="noopener noreferrer">
+        Consultar disponibilidade
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+
+      <details class="mobile-menu">
+        <summary aria-label="Abrir navegação"><span class="menu-icon" aria-hidden="true"></span></summary>
+        <nav class="mobile-menu-links" aria-label="Navegação para celular">
+          <a href="#acomodacoes">Acomodações</a>
+          <a href="#experiencia">A experiência</a>
+          <a href="#planeje">Planeje sua estadia</a>
+          <a class="header-booking" href="https://hotels.cloudbeds.com/reservas/Njf28O" target="_blank" rel="noopener noreferrer">Consultar disponibilidade</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <main id="site-experience">
+    <section
+      class="hero"
+      id="hero"
+      data-section-role="entrada"
+      data-section-purpose="Identificar a pousada, a localização e iniciar a exploração"
+      data-content-source="illustrative"
+      data-visual-section="true"
+    >
+      <div class="hero-media-shell">
+        <video
+          class="hero-media"
+          id="hero-media"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="assets/pexels-video-36026712-poster.jpg"
+          aria-hidden="true"
+          data-site-visual
+          data-asset-id="pexels-video-36026712"
+        >
+          <source src="assets/pexels-video-36026712.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-horizon" aria-hidden="true"></div>
+
+      <div class="hero-shell">
+        <div class="hero-copy">
+          <p class="hero-location">Tiradentes, Minas Gerais</p>
+          <h1>Pousada Encanto da Serra</h1>
+          <p class="hero-lead">A quatrocentos metros do centro histórico. Explore acomodações para 2 a 5 pessoas e consulte a disponibilidade no canal de reservas.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" id="booking-link" href="https://hotels.cloudbeds.com/reservas/Njf28O" target="_blank" rel="noopener noreferrer">
+              Consultar disponibilidade
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <a class="button button-secondary" href="#acomodacoes">
+              Explorar acomodações
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-context" aria-label="Localização">
+          <p class="context-distance">400 m</p>
+          <p class="context-copy">do centro histórico de Tiradentes, conforme a página pública de reservas.</p>
+        </aside>
+
+        <div class="hero-footer">
+          <p class="journey">Chegada em Tiradentes · escolha da acomodação · consulta de disponibilidade</p>
+          <div class="hero-controls">
+            <button class="motion-toggle" id="motion-toggle" type="button" aria-controls="hero-media" aria-pressed="false">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path class="motion-icon" d="M9 5v14M15 5v14"/></svg>
+              <span id="motion-toggle-label">Pausar vídeo</span>
+            </button>
+            <p class="demo-disclosure" data-demo-disclosure="true">Prévia visual com conteúdo ilustrativo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="content-section accommodations"
+      id="acomodacoes"
+      data-section-role="exploracao-e-escolha"
+      data-section-purpose="Filtrar categorias verificadas pelo tamanho do grupo, abrir detalhes e registrar uma preferência local"
+      data-content-source="verified"
+      data-visual-section="true"
+      data-interactive-section="true"
+      data-visual-reference="ref-20260902-60a72a11"
+    >
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>Encontre uma categoria para o seu grupo</h2>
+          <p>As categorias abaixo foram publicadas pela pousada para grupos de 2 a 5 pessoas. Escolha o tamanho do grupo para reduzir a lista e abra uma opção para preparar sua preferência.</p>
+        </div>
+
+        <div class="guest-rail" id="guest-rail">
+          <span class="rail-marker" aria-hidden="true"></span>
+          <div class="guest-filters" aria-label="Quantidade de hóspedes">
+            <button class="guest-filter" id="guest-filter-2" type="button" data-guests="2" aria-pressed="true">2 hóspedes</button>
+            <button class="guest-filter" id="guest-filter-3" type="button" data-guests="3" aria-pressed="false">3 hóspedes</button>
+            <button class="guest-filter" id="guest-filter-4" type="button" data-guests="4" aria-pressed="false">4 hóspedes</button>
+            <button class="guest-filter" id="guest-filter-5" type="button" data-guests="5" aria-pressed="false">5 hóspedes</button>
+          </div>
+        </div>
+
+        <div class="room-explorer">
+          <div class="room-list" id="room-list" data-active-filter="2" aria-live="polite">
+            <button class="room-option" id="select-standard-casal-terreo-economico" type="button" data-room="standard-casal-terreo-economico" data-guests="2" aria-pressed="false">
+              <span class="room-name">Standard casal térreo econômico</span><span class="room-capacity">2 hóspedes</span>
+            </button>
+            <button class="room-option" id="select-standard-casal-terreo-plus-ac" type="button" data-room="standard-casal-terreo-plus-ac" data-guests="2" aria-pressed="false">
+              <span class="room-name">Standard casal térreo plus AC</span><span class="room-capacity">2 hóspedes</span>
+            </button>
+            <button class="room-option" id="select-standard-duplo-triplo-terreo" type="button" data-room="standard-duplo-triplo-terreo" data-guests="2 3" aria-pressed="false">
+              <span class="room-name">Standard duplo/triplo plus térreo</span><span class="room-capacity">2–3 hóspedes</span>
+            </button>
+            <button class="room-option" id="select-standard-triplo-quadruplo-terreo" type="button" data-room="standard-triplo-quadruplo-terreo" data-guests="3 4" aria-pressed="false" hidden>
+              <span class="room-name">Standard triplo/quádruplo plus térreo</span><span class="room-capacity">3–4 hóspedes</span>
+            </button>
+            <button class="room-option" id="select-standard-casal-superior-vista" type="button" data-room="standard-casal-superior-vista" data-guests="2" aria-pressed="false">
+              <span class="room-name">Standard casal plus superior com vista para a Serra</span><span class="room-capacity">2 hóspedes</span>
+            </button>
+            <button class="room-option" id="select-standard-duplo-triplo-superior" type="button" data-room="standard-duplo-triplo-superior" data-guests="2 3" aria-pressed="false">
+              <span class="room-name">Standard duplo/triplo superior plus</span><span class="room-capacity">2–3 hóspedes</span>
+            </button>
+            <button class="room-option" id="select-standard-casal-superior" type="button" data-room="standard-casal-superior" data-guests="2" aria-pressed="false">
+              <span class="room-name">Standard casal superior plus</span><span class="room-capacity">2 hóspedes</span>
+            </button>
+            <button class="room-option" id="select-familia-externo-vista" type="button" data-room="familia-externo-vista" data-guests="5" aria-pressed="false" hidden>
+              <span class="room-name">Std família externo plus com vista</span><span class="room-capacity">5 hóspedes</span>
+            </button>
+            <button class="room-option" id="select-standard-casal-recepcao" type="button" data-room="standard-casal-recepcao" data-guests="2" aria-pressed="false">
+              <span class="room-name">Standard casal econômico recepção</span><span class="room-capacity">2 hóspedes</span>
+            </button>
+            <button class="room-option" id="select-standard-casal-externo" type="button" data-room="standard-casal-externo" data-guests="2" aria-pressed="false">
+              <span class="room-name">Std casal econômico externo plus</span><span class="room-capacity">2 hóspedes</span>
+            </button>
+            <button class="room-option" id="select-standard-casal-hidromassagem" type="button" data-room="standard-casal-hidromassagem" data-guests="2" aria-pressed="false">
+              <span class="room-name">Std casal superior hidromassagem</span><span class="room-capacity">2 hóspedes</span>
+            </button>
+            <button class="room-option" id="select-superior-duplo-triplo-vista" type="button" data-room="superior-duplo-triplo-vista" data-guests="2 3" aria-pressed="false">
+              <span class="room-name">Superior duplo/triplo plus com vista para a Serra</span><span class="room-capacity">2–3 hóspedes</span>
+            </button>
+            <button class="room-option" id="select-standard-casal-terreo-economico-plus" type="button" data-room="standard-casal-terreo-economico-plus" data-guests="2" aria-pressed="false">
+              <span class="room-name">Std casal térreo econômico plus</span><span class="room-capacity">2 hóspedes</span>
+            </button>
+          </div>
+
+          <aside class="room-detail-shell" id="room-detail" aria-live="polite" aria-label="Detalhes da categoria">
+            <p class="detail-location">Categorias publicadas</p>
+            <h3 id="room-detail-title">Escolha uma categoria</h3>
+            <p class="room-detail-copy" id="room-detail-copy">Abra uma opção da lista para ver a capacidade publicada e registrá-la como preferência local.</p>
+            <ul class="detail-facts" id="room-detail-facts">
+              <li>A lista responde ao tamanho do grupo.</li>
+              <li>Nenhuma disponibilidade é presumida.</li>
+            </ul>
+            <div class="selection-strip">
+              <strong>Sua escolha atual</strong>
+              <p id="selection-result" tabindex="-1" aria-live="polite">Nenhuma acomodação selecionada.</p>
+              <button class="review-stay" id="review-stay" type="button" disabled>Revisar preferência</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="content-section experience"
+      id="experiencia"
+      data-section-role="leitura-visual-e-confianca"
+      data-section-purpose="Apresentar a foto real coletada e fatos publicados sobre a estadia"
+      data-content-source="verified"
+      data-visual-section="true"
+    >
+      <div class="section-inner experience-layout">
+        <figure class="place-photo-frame">
+          <img
+            class="place-photo"
+            src="assets/place-photo.jpg"
+            alt="Fachada da Pousada Encanto da Serra, em Tiradentes"
+            loading="eager"
+            decoding="sync"
+            data-site-visual
+            data-image-source="serpapi_google_maps"
+          >
+          <figcaption class="place-photo-caption">Registro do estabelecimento coletado no Google Maps.</figcaption>
+        </figure>
+
+        <div class="experience-copy">
+          <h2>Entre o centro e a Serra de São José</h2>
+          <p class="experience-intro">A pousada fica a 400 metros do centro histórico de Tiradentes. A página pública de reservas reúne informações úteis para planejar a chegada e a estadia.</p>
+
+          <dl class="fact-list">
+            <div class="fact-row"><dt>Manhã</dt><dd>Café da manhã mineiro</dd></div>
+            <div class="fact-row"><dt>Na pousada</dt><dd>Piscina e recepção 24 horas</dd></div>
+            <div class="fact-row"><dt>Ambiente</dt><dd>Propriedade para não fumantes</dd></div>
+            <div class="fact-row"><dt>Chegada</dt><dd>Check-in às 14h</dd></div>
+            <div class="fact-row"><dt>Saída</dt><dd>Check-out às 12h</dd></div>
+          </dl>
+
+          <div class="rating-line" aria-label="Nota 4,7 em 446 avaliações no Google Maps">
+            <span class="rating-number">4,7</span>
+            <span class="rating-copy">em 446 avaliações no Google Maps</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="content-section plan"
+      id="planeje"
+      data-section-role="resultado-e-proximo-passo"
+      data-section-purpose="Revisar ou limpar a preferência e oferecer reserva e contatos verificados"
+      data-content-source="verified"
+      data-interactive-section="true"
+    >
+      <div class="section-inner plan-layout">
+        <div class="plan-copy">
+          <h2>Planeje sua estadia</h2>
+          <p class="plan-intro">Revise a categoria escolhida antes de consultar as datas no canal de reservas da pousada.</p>
+
+          <div class="stay-summary">
+            <h3>Sua preferência de estadia</h3>
+            <p class="summary-state" id="stay-summary" tabindex="-1" aria-live="polite">Nenhuma acomodação selecionada.</p>
+            <div class="summary-actions">
+              <button class="text-action" id="edit-selection" type="button">Editar preferência</button>
+              <button class="text-action" id="clear-selection" type="button">Limpar preferência</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-panel">
+          <h3>Consulte as datas para a sua viagem</h3>
+          <p>A disponibilidade e as tarifas são informadas no canal de reservas.</p>
+          <div class="contact-actions">
+            <a class="button button-primary" href="https://hotels.cloudbeds.com/reservas/Njf28O" target="_blank" rel="noopener noreferrer">
+              Consultar disponibilidade
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <a class="contact-link" href="tel:+5532988791591"><span>Ligar para a pousada</span><span aria-hidden="true">(32) 98879-1591</span></a>
+            <a class="contact-link" href="mailto:reservas@encantodaserra.com.br"><span>Enviar e-mail</span><span aria-hidden="true">reservas@encantodaserra.com.br</span></a>
+          </div>
+          <address class="address">Em frente ao posto de gasolina, Rua dos Inconfidentes, 488, Centro<br>Tiradentes, Minas Gerais</address>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" aria-label="Rodapé">
+    <div class="footer-inner">
+      <p class="footer-credit">Conceito criado pela Orbian para <strong>Pousada Encanto da Serra.</strong></p>
+      <a class="footer-top-link" href="#hero">Voltar ao início</a>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const video = document.querySelector("#hero-media");
+      const toggle = document.querySelector("#motion-toggle");
+      const label = document.querySelector("#motion-toggle-label");
+      const icon = document.querySelector(".motion-icon");
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      const updateControl = (paused) => {
+        toggle.setAttribute("aria-pressed", String(paused));
+        label.textContent = paused ? "Reproduzir vídeo" : "Pausar vídeo";
+        icon.setAttribute("d", paused ? "m9 6 9 6-9 6Z" : "M9 5v14M15 5v14");
+        video.classList.toggle("is-paused", paused);
+      };
+
+      const pauseForPreference = () => {
+        if (!reducedMotion.matches) return;
+        video.pause();
+        updateControl(true);
+      };
+
+      toggle.addEventListener("click", async () => {
+        if (video.paused) {
+          try {
+            await video.play();
+            updateControl(false);
+          } catch {
+            updateControl(true);
+          }
+        } else {
+          video.pause();
+          updateControl(true);
+        }
+      });
+
+      video.addEventListener("play", () => updateControl(false));
+      video.addEventListener("pause", () => updateControl(true));
+      reducedMotion.addEventListener?.("change", pauseForPreference);
+      pauseForPreference();
+
+      document.querySelectorAll(".mobile-menu-links a").forEach((link) => {
+        link.addEventListener("click", () => link.closest("details")?.removeAttribute("open"));
+      });
+
+      const roomData = {
+        "standard-casal-terreo-economico": { name: "Standard casal térreo econômico", capacity: "2 hóspedes" },
+        "standard-casal-terreo-plus-ac": { name: "Standard casal térreo plus AC", capacity: "2 hóspedes" },
+        "standard-duplo-triplo-terreo": { name: "Standard duplo/triplo plus térreo", capacity: "2 a 3 hóspedes" },
+        "standard-triplo-quadruplo-terreo": { name: "Standard triplo/quádruplo plus térreo", capacity: "3 a 4 hóspedes" },
+        "standard-casal-superior-vista": { name: "Standard casal plus superior com vista para a Serra", capacity: "2 hóspedes" },
+        "standard-duplo-triplo-superior": { name: "Standard duplo/triplo superior plus", capacity: "2 a 3 hóspedes" },
+        "standard-casal-superior": { name: "Standard casal superior plus", capacity: "2 hóspedes" },
+        "familia-externo-vista": { name: "Std família externo plus com vista", capacity: "5 hóspedes" },
+        "standard-casal-recepcao": { name: "Standard casal econômico recepção", capacity: "2 hóspedes" },
+        "standard-casal-externo": { name: "Std casal econômico externo plus", capacity: "2 hóspedes" },
+        "standard-casal-hidromassagem": { name: "Std casal superior hidromassagem", capacity: "2 hóspedes" },
+        "superior-duplo-triplo-vista": { name: "Superior duplo/triplo plus com vista para a Serra", capacity: "2 a 3 hóspedes" },
+        "standard-casal-terreo-economico-plus": { name: "Std casal térreo econômico plus", capacity: "2 hóspedes" }
+      };
+
+      const roomList = document.querySelector("#room-list");
+      const roomOptions = [...document.querySelectorAll(".room-option")];
+      const guestFilters = [...document.querySelectorAll(".guest-filter")];
+      const guestRail = document.querySelector("#guest-rail");
+      const detailTitle = document.querySelector("#room-detail-title");
+      const detailCopy = document.querySelector("#room-detail-copy");
+      const detailFacts = document.querySelector("#room-detail-facts");
+      const selectionResult = document.querySelector("#selection-result");
+      const staySummary = document.querySelector("#stay-summary");
+      const reviewStay = document.querySelector("#review-stay");
+      const editSelection = document.querySelector("#edit-selection");
+      const clearSelection = document.querySelector("#clear-selection");
+
+      const stayState = {
+        guests: 2,
+        roomId: null
+      };
+
+      const summaryText = () => {
+        if (!stayState.roomId) return "Nenhuma acomodação selecionada.";
+        return `${stayState.guests} hóspedes · ${roomData[stayState.roomId].name}`;
+      };
+
+      const renderSummary = () => {
+        const text = summaryText();
+        selectionResult.textContent = text;
+        staySummary.textContent = text;
+        reviewStay.disabled = !stayState.roomId;
+      };
+
+      const showInitialDetail = () => {
+        detailTitle.textContent = "Escolha uma categoria";
+        detailCopy.textContent = "Abra uma opção da lista para ver a capacidade publicada e registrá-la como preferência local.";
+        detailFacts.innerHTML = "<li>A lista responde ao tamanho do grupo.</li><li>Nenhuma disponibilidade é presumida.</li>";
+      };
+
+      const clearRoom = () => {
+        stayState.roomId = null;
+        roomOptions.forEach((option) => option.setAttribute("aria-pressed", "false"));
+        showInitialDetail();
+        renderSummary();
+      };
+
+      const filterRooms = (guests) => {
+        stayState.guests = Number(guests);
+        roomList.dataset.activeFilter = String(guests);
+        guestRail.style.setProperty("--rail-position", `${(Number(guests) - 2) * 33.333}%`);
+        guestFilters.forEach((filter) => {
+          filter.setAttribute("aria-pressed", String(filter.dataset.guests === String(guests)));
+        });
+        roomOptions.forEach((option) => {
+          option.hidden = !option.dataset.guests.split(" ").includes(String(guests));
+        });
+        if (stayState.roomId) {
+          const chosen = document.querySelector(`[data-room="${stayState.roomId}"]`);
+          if (chosen?.hidden) clearRoom();
+          else renderSummary();
+        }
+      };
+
+      guestFilters.forEach((filter) => {
+        filter.addEventListener("click", () => filterRooms(filter.dataset.guests));
+      });
+
+      roomOptions.forEach((option) => {
+        option.addEventListener("click", () => {
+          const room = roomData[option.dataset.room];
+          stayState.roomId = option.dataset.room;
+          roomOptions.forEach((item) => item.setAttribute("aria-pressed", String(item === option)));
+          detailTitle.textContent = room.name;
+          detailCopy.textContent = `Categoria publicada para ${room.capacity}. A escolha fica somente neste navegador até ser alterada ou limpa.`;
+          detailFacts.innerHTML = `<li>Capacidade publicada: ${room.capacity}.</li><li>Disponibilidade e tarifas são consultadas no canal de reservas.</li>`;
+          renderSummary();
+        });
+      });
+
+      reviewStay.addEventListener("click", () => {
+        if (!stayState.roomId) return;
+        renderSummary();
+        document.querySelector("#planeje").scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth" });
+        staySummary.focus({ preventScroll: true });
+      });
+
+      editSelection.addEventListener("click", () => {
+        document.querySelector("#acomodacoes").scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth" });
+        document.querySelector(`#guest-filter-${stayState.guests}`).focus({ preventScroll: true });
+      });
+
+      clearSelection.addEventListener("click", () => {
+        clearRoom();
+        selectionResult.focus({ preventScroll: true });
+      });
+
+      filterRooms(2);
+      renderSummary();
+    })();
+  </script>
+</body>
+</html>
